@@ -1,0 +1,1 @@
+savedcmd_/home/kamchio/Downloads/Week2/rasp_driver.ko := aarch64-linux-gnu-ld -r -EL  -maarch64elf -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/arm64/module.lds -o /home/kamchio/Downloads/Week2/rasp_driver.ko /home/kamchio/Downloads/Week2/rasp_driver.o /home/kamchio/Downloads/Week2/rasp_driver.mod.o /home/kamchio/Downloads/Week2/.module-common.o

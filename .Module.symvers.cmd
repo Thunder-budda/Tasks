@@ -1,0 +1,1 @@
+savedcmd_/home/kamchio/Downloads/Week2/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/kamchio/Downloads/Week2/Module.symvers -n -T /home/kamchio/Downloads/Week2/modules.order -i Module.symvers -e 
