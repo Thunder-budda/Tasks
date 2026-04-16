@@ -1,2 +1,1 @@
-/home/kamchio/weeklyTasks/Week2/week_3/kvmalloc_driver.o
-
+/home/kamchio/Downloads/Week3/kvmalloc_driver.o

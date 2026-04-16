@@ -158,7 +158,7 @@ static int __init kvmalloc_buffer_manage_init(void)
         return -ENOMEM;
     }
     memset(kernel_buffer_kmalloc, 0, DEFAULT_BUF_SIZE);
-    printk(KERN_INFO "Kernel buffer allocated by kmalloc at address: 0x%p\n", kernel_buffer_kmalloc);
+    printk(KERN_INFO "Kernel buffer allocated by kmalloc at address: 0x%px\n", kernel_buffer_kmalloc);
 
     //使用vmalloc分配1MB虚拟缓冲区
     kernel_buffer_vmalloc = vmalloc(DEFAULT_BUF_SIZE);
@@ -167,7 +167,7 @@ static int __init kvmalloc_buffer_manage_init(void)
         goto cleanup_kmalloc;
     }
     memset(kernel_buffer_vmalloc, 0, DEFAULT_BUF_SIZE);
-    printk(KERN_INFO "Kernel buffer allocated by vmalloc at address: 0x%p\n", kernel_buffer_vmalloc);
+    printk(KERN_INFO "Kernel buffer allocated by vmalloc at address: 0x%px\n", kernel_buffer_vmalloc);
 
     kernel_buffer = kernel_buffer_kmalloc; //默认使用kmalloc分配的缓冲区
 
@@ -183,8 +183,8 @@ static int __init kvmalloc_buffer_manage_init(void)
         goto cleanup_buffers;
     }
 
-    //创建设备类
-    kvmalloc_class = class_create(THIS_MODULE, CLASS_NAME);
+    //创建设备类（新内核class_create只需要类名参数）
+    kvmalloc_class = class_create(CLASS_NAME);
     if (IS_ERR(kvmalloc_class)) {
         printk(KERN_ERR "Failed to create device class\n");
         ret = PTR_ERR(kvmalloc_class);

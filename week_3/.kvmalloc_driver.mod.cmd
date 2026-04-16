@@ -1,1 +1,0 @@
-cmd_/home/kamchio/weeklyTasks/Week2/week_3/kvmalloc_driver.mod := { echo  /home/kamchio/weeklyTasks/Week2/week_3/kvmalloc_driver.o; echo; } > /home/kamchio/weeklyTasks/Week2/week_3/kvmalloc_driver.mod
