@@ -156,34 +156,6 @@ cp /home/kamchio/libs/luckfox-pico/output/image/sd_update.img /home/kamchio/libs
 
 ## 6. 替换 SD 卡 boot 区
 
-Luckfox SD 镜像的 boot 分区不是标准 `/dev/sdb1` 这种分区节点方式，而是固定偏移布局：
-
-```text
-env      32K
-idblock  512K
-uboot    256K
-boot 起始偏移 = 32K + 512K + 256K = 800K = 819200 bytes
-819200 / 512 = 1600
-```
-
-因此替换 boot 区时，写入目标是整盘 `/dev/sdb` 的固定 offset，不是 `/dev/sdb1`。
-
-先卸载：
-
-```bash
-udisksctl unmount -b /dev/sdb1
-```
-
-写入 RT boot：
-
-```bash
-cd /home/kamchio/libs/luckfox-pico
-
-sudo dd if=output/image/boot-rt.img of=/dev/sdb bs=512 seek=1600 conv=notrunc,fsync status=progress
-sync
-```
-
-如果要整卡替换为 RT 镜像：
 
 ```bash
 cd /home/kamchio/libs/luckfox-pico
